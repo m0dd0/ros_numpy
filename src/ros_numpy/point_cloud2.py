@@ -246,7 +246,7 @@ def split_rgb_field(cloud_arr):
     return new_cloud_arr
 
 
-def get_xyz_points(cloud_array, remove_nans=True, dtype=np.float):
+def get_xyz_points(cloud_array, remove_nans=True, dtype=float):
     """Pulls out x, y, and z columns from the cloud recordarray, and returns
     a 3xN matrix.
     """
