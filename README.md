@@ -12,11 +12,11 @@ Currently supports:
    data = np.zeros(100, dtype=[
      ('x', np.float32),
      ('y', np.float32),
-     ('vectors', np.float32, (3,))
+     ('rgb', np.float32, (3,))
    ])
    data['x'] = np.arange(100)
    data['y'] = data['x']*2
-   data['vectors'] = np.arange(100)[:,np.newaxis]
+   data['rgb'] = np.arange(100)[:,np.newaxis]
    
    msg = ros_numpy.msgify(PointCloud2, data)
    ```

@@ -1,5 +1,5 @@
 from .registry import converts_from_numpy, converts_to_numpy
-from geometry_msgs.msg import Transform, Vector3, Quaternion, Point, Pose
+from geometry_msgs.msg import Transform, Vector3, Quaternion, Point, Pose, PoseStamped
 from . import numpify
 
 import numpy as np
@@ -127,3 +127,18 @@ def numpy_to_pose(arr):
                     *transformations.quaternion_from_matrix(arr[idx])
                 ),
             )
+
+
+@converts_to_numpy(PoseStamped)
+def pose_stamped_to_numpy(msg):
+    return pose_to_numpy(msg.pose)
+
+
+@converts_from_numpy(PoseStamped)
+def numpy_to_pose_stamped(arr, header=None):
+    msg = PoseStamped(pose=numpy_to_pose(arr))
+
+    if header is not None:
+        msg.header = header
+
+    return msg

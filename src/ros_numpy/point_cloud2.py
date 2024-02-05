@@ -175,6 +175,9 @@ def array_to_pointcloud2(cloud_arr, stamp=None, frame_id=None):
     return cloud_msg
 
 
+# some utilities for working with point clouds
+
+
 def merge_rgb_fields(cloud_arr):
     """Takes an array with named np.uint8 fields 'r', 'g', and 'b', and returns an array in
     which they have been merged into a single np.float32 'rgb' field. The first byte of this
